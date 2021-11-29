@@ -1,0 +1,524 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Costumer</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="container" style="position: relative;">
+      <div class="alert alert-primary" role="alert" id="acction" style="position: relative; display: none;">
+        <button class="btn btn-danger" style="position: absolute; top: 5; right: 5;">&#10006</button>
+      </div>
+      <button class="btn btn-primary" onclick="OpenForm()">&#10009;</button>
+      <div class="row">
+        <div class="col-sm">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Position</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Date of birth</th>
+                <th scope="col">Address</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Expr</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody id="data__table"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row" style="background: black;">
+        <div class="col-sm-8"
+        style="
+        display: none;
+        background: black;
+        position: absolute;
+        color:white;
+        top: 300px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        padding: au;
+        padding: auto;
+        opacity: 0.8;
+        height: 850px;
+        z-index: 999;
+        top: 600px;
+    " id="formAdd"> 
+       <button class="btn btn-danger" onclick="CloseForm()" style="position: absolute; top: 0; right: 0;">&#10006;</button>
+          <form">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                placeholder="Full name"
+              />
+            </div>
+          
+            <div class="form-group">
+              <label for="birth__date">Date of birth</label>
+              <input type="date" class="form-control" id="birth__date" />
+            </div>
+            <div class="form-group">
+              <label for="cmnd">Cmnd</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cmnd"
+                placeholder="Chứng minh nhân dân"
+              />
+            </div>
+            <div class="form-group">
+              <label for="account_code">Account code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="account_code"
+                placeholder="Account code"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Available">Available</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Available"
+                placeholder="mony available"
+              />
+            </div>
+            <div class="form-group">
+                <label for="Expr">Expr</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Expr"
+                  placeholder="Expr"
+                />
+              </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                placeholder="Address"
+              />
+            </div>
+            <div class="form-group">
+                <label for="address">Salary</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Salary"
+                  placeholder="Salary"
+                />
+              </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Choose Role</label>
+              <select class="form-control" id="role__list"></select>
+              <button type="button" class="btn btn-primary justify-content-center" onclick="Process()">
+                Add
+              </button>
+              <button type="button" class="btn btn-primary justify-content-center" onclick="UD()">
+                Update
+              </button>
+            </div> 
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+        
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+    <script>
+      let card = document.querySelector("#Card_item");
+      let form = document.querySelector("#formAdd");
+      let urlCheckOut="http://localhost:8080/api/costumer/user-checkout";
+      let apiUpdate = "http://localhost:8080/api/costumer";
+      let useApi="http://localhost:8080/api/costumer/user";
+      let Process = async () => {
+        let urlCostumer = "http://localhost:8080/api/employees";
+        let fullName = document.querySelector("#fullName").value;
+        let data = {
+            Cmt: document.querySelector("#cmnd").value,
+          fullName: document.querySelector("#fullName").value,
+          dateOfBirth: document.querySelector("#birth__date").value,
+          address: document.querySelector("#address").value,
+          salary:document.querySelector("#Salary").value,
+          exp:document.querySelector("#Expr").value,
+          position:"Employee",
+          entity: {
+            accountCode: document.querySelector("#account_code").value,
+            available: document.querySelector("#Available").value,
+            roleAccount: {
+              id: document.querySelector("#role__list").value,
+            },
+          },
+        };
+        console.log(data);
+        var result = await fetch(urlCostumer, {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          referrerPolicy: "no-referrer",
+          body: JSON.stringify(data),
+        }).then((data) =>renderAction(data.message) );
+      };
+      let urlRole = `http://localhost:8080/api/role`;
+      let callApiRole = async () => {
+        var result = await fetch(urlRole)
+          .then((response) => response.json())
+          .then((data) => renderRole(data));
+      };
+      let render = document.querySelector("#role__list");
+      let renderRole = (data) => {
+        var html = "";
+        data.forEach((element) => {
+          html += `
+                   <option value="${element.id}">${element.erole}</option>
+                   `;
+        });
+        render.innerHTML = html;
+      };
+      let dataTable = async () => {
+        let urlCostumer = "http://localhost:8080/api/employees";
+        var result = await fetch(urlCostumer)
+          .then((response) => response.json())
+          .then((data) => {renderTable(data)});
+      };
+      dataTable();
+      let renderTable = (data) => {
+        console.log(data);
+        let table_data = document.querySelector("#data__table");
+        var html = "";
+        data.forEach((e) => {
+          html += `
+                   <tr>
+                    <th scope="row">${e.id}</th>
+                    <td>${e.position}</td>
+                    <td>${e.fullName}</td>
+                    <td>${e.dataOfbirth}</td>
+                    <td>${e.address}</td>
+                    <td>${e.salary}</td>
+                    <td>${e.expr}</td>
+                
+                    <td>
+                        <button class="btn btn-primary" onclick="Delete(${e.id})">Delete</button>
+                      
+                    </td>
+                  </tr>
+                   `;
+        });
+        table_data.innerHTML = html;
+      };
+      callApiRole();
+      let currentAccount = {};
+      let Buy=(id)=>{
+        currentAccount.id=id;
+        card.style.display="flex";
+      }
+      let checkout=async(price)=>{
+           var result = await fetch(urlCheckOut+`?id=${currentAccount.id}&price=${price}`,{
+             method:"POST"
+           }).then(response=>response.json()).then(data=>renderAction(data.message))
+        }
+      let Delete = async (id) => {
+      //  var urlAccount ="http://localhost:8080/api/account";
+        var url = "http://localhost:8080/api/employees";
+        // var result = await fetch(urlAccount + `?id=${id}`, {
+        //   method: "Delete",
+        // }).then(data=>console.log(data))
+        var result = await fetch(url + `?id=${id}`, {
+          method: "Delete",
+        }).then(response=>response.json()).then(data=>renderAction(data.message))
+      };
+      
+      let Edit =async (id) => {
+        form.style.display="block";
+         var result = await fetch(useApi+`?id=${id}`).then(response=>response.json()).then(data=>renderF(data,id))   
+      };
+      let renderF=(data,id)=>{
+        currentAccount.id=id;
+         document.querySelector("#cmnd").value=data.cmnd
+         document.querySelector("#fullName").value=data.fullName
+        document.querySelector("#address").value=data.address
+        document.querySelector("#birth__date").value=getFormattedDate(data.dateOfBirth)
+          document.querySelector("#account_code").value=data.accountDtos.accountCode;
+             document.querySelector("#Available").value=data.accountDtos.available
+          
+         }
+         let UD =async()=>{
+          let fullName = document.querySelector("#fullName").value;
+        let data = {
+          id:currentAccount.id,
+          cmnd: document.querySelector("#cmnd").value,
+          fullName: document.querySelector("#fullName").value,
+          dateOfBirth: document.querySelector("#birth__date").value,
+          address: document.querySelector("#address").value,
+          entity: {
+            accountCode: document.querySelector("#account_code").value,
+            available: document.querySelector("#Available").value,
+            roleAccount: {
+              id: document.querySelector("#role__list").value,
+              
+            },
+          },
+        };
+        console.log(data);
+         var result = await fetch(apiUpdate,{
+           method:"PUT",
+           mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+           body: JSON.stringify(data),
+         }).then(response=>response.json()).then(data=>renderAction(data.message))
+         }
+      let OpenForm =()=>{
+        form.style.display="block";
+      }
+      let CloseForm=()=>{
+        form.style.display="none";
+      }
+      let closeCard =()=>{
+        card.style.display="none";
+      }
+      let acction =document.querySelector("#acction");
+       let renderAction=(data)=>{
+        acction.style.display="block";
+        acction.innerHTML=data+' <button class="btn btn-danger" style="position: absolute; top: 5; right: 5;">&#10006</button>';
+        setTimeout(()=>{
+          acction.style.display="none";
+        },5000)
+       }
+       function getFormattedDate(d) {
+         var date = new Date(d);
+  var year = date.getFullYear();
+
+  var month = (1 + date.getMonth()).toString();
+  month = month.length > 1 ? month : '0' + month;
+
+  var day = date.getDate().toString();
+  day = day.length > 1 ? day : '0' + day;
+  
+  return    year+'-'+month + '-'+ day ;
+}
+    </script>
+  </body>
+</html>
